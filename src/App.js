@@ -1,25 +1,113 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import { Navbar } from './components/Navbar.js';
+import { Home } from './components/pages';
+import VerifyNews from './components/pages/VerifyNews.js';
+import Contact from './components/pages/Contact.js'
+import About from './components/pages/About.js'
+import Login from './components/pages/Login.js'
+import SignUp from './components/pages/SignUp.js'
+import Footer from './components/pages/Footer.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+import ForgotPassword from './components/pages/ForgotPassword.js';
+import MaybeShowNavBar from './components/MaybeShowNavBar/MaybeShowNavBar.js';
+import { useLocation } from 'react-router-dom';
+
+
+
+
+
 
 function App() {
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MaybeShowNavBar>
+            <Navbar/>
+      </MaybeShowNavBar>
+     
+     <Routes>
+      <Route path='/' element={< Home/>}></Route>
+      <Route path='/about' element={< About/>}></Route>
+      <Route path='/contact' element={< Contact/>}></Route>
+      <Route path='/verifyNews' element={< VerifyNews/>}></Route>
+      <Route path='/login'element={< Login/>}></Route>
+      <Route path='/signup'element={< SignUp/>}></Route>
+      <Route path='/forgotPassword'element={<ForgotPassword />}></Route>
+     </Routes>
     </div>
+
+
+    
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
