@@ -1,19 +1,33 @@
 import React, { useState } from 'react';
 import './Login.css';
-import icon from './App Icon.jpg'
-import { Link } from 'react-router-dom';
+import icon from './App Icon.jpg';
+import { Link, useNavigate } from 'react-router-dom';
 
-export const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login = () => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleInput = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
 
   const validateForm = () => {
-    if (!email) {
+    if (!user.email) {
       alert('Email must be filled out');
       return false;
     }
 
-    if (!password) {
+    if (!user.password) {
       alert('Password must be filled out');
       return false;
     }
@@ -21,64 +35,78 @@ export const Login = () => {
     return true;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
-      // handle form submission here
-      console.log('Form submitted:', { email, password });
-      // replace with actual form submission logic, e.g., using fetch or axios
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        });
+
+        if (response.ok) {
+          alert("Login successful");
+          setUser({ password: "", email: "" });
+          navigate('/home');
+        } else {
+          alert("Invalid credentials");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
   return (
     <div className='body'>
-    <div className="container1">
-      <h2>Login To Your Account</h2>
+      <div className="container1">
+        <h2>Login To Your Account</h2>
 
-      <div className="imgcontainer">
-        <img src={icon} alt="Avatar" className="avatar" />
-      </div>
+        <div className="imgcontainer">
+          <img src={icon} alt="Avatar" className="avatar" />
+        </div>
 
-      <form onSubmit={handleSubmit}>
-        <label><b>Email</b></label>
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <form onSubmit={handleSubmit}>
+          <label><b>Email</b></label>
+          <input
+            type="text"
+            placeholder="Enter Email Address"
+            name="email" // Add name attribute
+            value={user.email}
+            onChange={handleInput}
+            required
+          />
 
-        <label><b>Password</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <label><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password" // Add name attribute
+            value={user.password}
+            onChange={handleInput}
+            required
+          />
 
-        <button type="submit" className='center'>
-        {/* <a href="/" className="loginbtn">Login</a> */}
-        {/* <Link to="/" className="loginbtn">Login</Link> */}
-        Login
+          <button type="submit" className='center'>
+            Login
+          </button>
+        </form>
+
+        <br />
+
+        <button type="button" className='log' style={{ alignItems: 'center' }}>
+          <Link to="/signup" className="signupbtn">Create Account</Link>
         </button>
 
-      </form>
+        <br />
 
-      <br />
-
-      <button type="button" className='log' style={{  alignItems:'center' }}>
-        {/* <a href="SignUp.html" className="signupbtn">Create Account</a>  */}
-        <Link to="/signup" className="signupbtn">Create Account</Link>
-      </button>
-
-      <br />
-
-      <button type="button" className='changepass'>
-       <Link to="/forgotPassword" className='changepwrd'>Forgot Password?</Link>
-      </button>
-    </div>
+        <button type="button" className='changepass'>
+          <Link to="/forgotPassword" className='e'>Forgot Password?</Link>
+        </button>
+      </div>
     </div>
   );
 };

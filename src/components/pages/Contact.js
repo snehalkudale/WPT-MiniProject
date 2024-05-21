@@ -30,7 +30,7 @@ function Contact() {
     <div>
       <div className="container3">
         <div style={{ textAlign: 'center' }}>
-          <h3><b>Contact Us</b></h3>
+          <h3><b>Feedback</b></h3>
         </div>
 
         <div className="row">
@@ -51,17 +51,18 @@ function Contact() {
               
               <label>Description</label>
               <textarea id="subject" name="subject" placeholder="Please provide a detailed description of the reason for your contact." style={{ height: '170px' }} required></textarea>
-              
+          
               <input type="submit" value="Submit" />
+             
             </form>
           </div>
         </div>
       </div>
 
-      <button className="open-button" onClick={openForm}>Quick Feedback</button>
+      {/* <button className="open-button" onClick={openForm}>Quick Feedback</button>
 
       {popupVisible && (
-        <div className="form-popup" id="myForm">
+        <div className="form-popup">
           <form className="form-container" onSubmit={handleFeedbackSubmit}>
             <h1>Feedback</h1>
 
@@ -105,7 +106,7 @@ function Contact() {
             <button type="button" className="btn cancel" onClick={closeForm}>Close</button>
           </form>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

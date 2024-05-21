@@ -1,3 +1,9 @@
+.about{
+    background: url('../assets/Background.jpg');
+    background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -22,17 +28,12 @@ html {
     padding: 0 8px;
 }
 
-.column:hover{
-    background-color: #0d6603;
-}
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
 }
-.card:hover{
-    background-color: #99d5ac;
-}
+
 
 .about-section {
     padding: 20px;
@@ -148,7 +149,7 @@ p {
 }
 
 a {
-    color: rgb(14, 14, 14);
+    color: rgb(230, 238, 239);
     text-decoration: none;
 }
 
@@ -162,4 +163,9 @@ a {
     color: rgb(25, 25, 25);
     font-size: 1.5em;
     transition: color 0.3s;
+  }
+
+  button .d{
+    text-decoration: none;
+    color: white;
   }

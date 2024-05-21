@@ -7,7 +7,7 @@ import Contact from './components/pages/Contact.js'
 import About from './components/pages/About.js'
 import Login from './components/pages/Login.js'
 import SignUp from './components/pages/SignUp.js'
-import Footer from './components/pages/Footer.jsx'
+import Footer from './components/pages/Footer.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import ForgotPassword from './components/pages/ForgotPassword.js';
@@ -30,12 +30,12 @@ function App() {
       </MaybeShowNavBar>
      
      <Routes>
-      <Route path='/' element={< Home/>}></Route>
+      <Route path='/home' element={< Home/>}></Route>
       <Route path='/about' element={< About/>}></Route>
-      <Route path='/contact' element={< Contact/>}></Route>
+      <Route path='/feedback' element={< Contact/>}></Route>
       <Route path='/verifyNews' element={< VerifyNews/>}></Route>
-      <Route path='/login'element={< Login/>}></Route>
-      <Route path='/signup'element={< SignUp/>}></Route>
+      <Route path='/' element={< Login/>}></Route>
+      <Route path='/signup' element={< SignUp/>}></Route>
       <Route path='/forgotPassword'element={<ForgotPassword />}></Route>
      </Routes>
     </div>

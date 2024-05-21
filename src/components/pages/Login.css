@@ -38,9 +38,9 @@ input[type=email], input[type=password] {
     align-items: center;
   }
   
-  button .loginbtn:hover, button .signupbtn:hover, button .changepwdbtn:hover{
+  /* button .loginbtn:hover, button .signupbtn:hover, button .changepwdbtn:hover{
     background-color: #4CAF50;
-  }
+  } */
   /* p{
     text-align: center;
 } */
@@ -48,15 +48,22 @@ input[type=email], input[type=password] {
     text-decoration: none;
     color: white;
 }
+
+.e{
+  text-decoration: none;
+  color: white;
+}
+
+
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: #04320d;
   }
   
-  .cancelbtn:hover{
-      background-color: darkred;
-  }
+  /* .cancelbtn:hover{
+      background-color: rgb(4, 52, 8);
+  } */
   .imgcontainer {
     text-align: center;
     border: 1 px solid black;

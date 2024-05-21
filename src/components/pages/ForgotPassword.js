@@ -64,9 +64,9 @@ import './ForgorPasswordCSS.css';
                 <input type="password" placeholder="Confirm New Password" name="confirmNewPassword" required />
                 <br/><br/>
 
-                <button type="submit" className='sbmt'>Confirm</button>
+                <button type="submit" className='sbmt'><Link to="/">Confirm</Link></button>
                 <br/>
-                <button type="button" className='lgn'><Link to="/login">Cancel</Link></button>
+                <button type="button" className='lgn'><Link to="/">Cancel</Link></button>
             </form>
 
    </div>

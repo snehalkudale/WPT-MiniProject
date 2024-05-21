@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import React from 'react'
 import './Home.css';
-import './Footer.jsx';
+// import './Footer.jsx';
 
 export function Home()  {
   return (
@@ -40,7 +40,7 @@ export function Home()  {
   Our project endeavours to play a crucial role in fostering a more informed and discerning society.</p>
 
   <br/>
-  <button type="button" className='btn'> <Link to="/verifyNews" class="title">Try It!!!</Link></button>
+  <button type="button" className='btn'> <Link to="/verifyNews" className="a">Try It!!!</Link></button>
   </div>
   </div>
   </nav>
